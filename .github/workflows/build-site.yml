@@ -22,6 +22,10 @@ jobs:
         run: mv site/* .
       - name: Move entry point
         run: mv src/app/holdings/page.tsx src/app/page.tsx
+      - name: Remove foundation project
+        run: rm -rf src/app/foundation
+      - name: Replace brand colors
+        run: sed -i -e "s/teal/sky/g" ./tailwind.config.ts
       - name: Detect package manager
         id: detect-package-manager
         run: |
