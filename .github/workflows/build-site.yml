@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Clone project
         run: git clone https://github.com/chowdhary-org/chowdhary.org.git .
+      - name: Move entry point
+        run: mv src/app/holdings/page.tsx src/app/page.tsx
       - name: Detect package manager
         id: detect-package-manager
         run: |
