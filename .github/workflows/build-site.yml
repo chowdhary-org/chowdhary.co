@@ -14,8 +14,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Clone project
-        run: git clone https://github.com/chowdhary-org/chowdhary.org.git .
+        run: git clone https://github.com/chowdhary-org/website.git site
+      - name: Move project
+        run: mv site/* .
       - name: Move entry point
         run: mv src/app/holdings/page.tsx src/app/page.tsx
       - name: Detect package manager
