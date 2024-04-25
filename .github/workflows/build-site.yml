@@ -20,8 +20,12 @@ jobs:
         run: git clone https://github.com/chowdhary-org/website.git site
       - name: Move project
         run: mv site/* .
+      - name: Create homepage directory
+        run: mkdir "src/app/(homepage)"
       - name: Move entry point
-        run: mv src/app/holdings/page.tsx src/app/page.tsx
+        run: mv src/app/holdings/page.tsx "src/app/(homepage)/page.tsx"
+      - name: Move layout
+        run: mv src/app/holdings/layout.tsx "src/app/(homepage)/layout.tsx"
       - name: Remove foundation project
         run: rm -rf src/app/foundation
       - name: Replace brand colors
