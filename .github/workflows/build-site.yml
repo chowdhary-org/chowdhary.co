@@ -28,6 +28,8 @@ jobs:
         run: mv src/app/holdings/layout.tsx "src/app/(homepage)/layout.tsx"
       - name: Remove foundation project
         run: rm -rf src/app/foundation
+      - name: Move static assets
+        run: cp public/holdings/* public
       - name: Replace brand colors
         run: sed -i -e "s/teal/sky/g" ./tailwind.config.ts
       - name: Detect package manager
